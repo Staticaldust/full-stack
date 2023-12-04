@@ -10,6 +10,7 @@ export const connectionToPostgres = async () => {
     await client.connect();
     await client.connect();
     return "Connected to PostgreSQL";
+    
   } catch (error) {
     return Promise.reject(error);
   }
