@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oms-client-configmap
+  namespace: oms
+data:
+  VITE_BASE_URL: "http://aa6fa525644e14bc6a2365d099504e2c-1084886360.eu-central-1.elb.amazonaws.com/oms/api"

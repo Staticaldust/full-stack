@@ -1,0 +1,98 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-store-ingress
+  namespace: example
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /banners/api(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: banners-server-service
+                port:
+                  number: 3000
+          - path: /banners(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: banners-client-service
+                port:
+                  number: 80
+          - path: /erp(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: erp-client-service
+                port:
+                  number: 80
+          - path: /erp/api(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: erp-server-service
+                port:
+                  number: 6000
+          - path: /oms(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: oms-client-service
+                port:
+                  number: 80
+          - path: /oms/api(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: oms-server-service
+                port:
+                  number: 5000
+          - path: /store(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: store-client-service
+                port:
+                  number: 80
+          - path: /store/api(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: store-server-service
+                port:
+                  number: 4000
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: erp-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+  namespace: erp # Set the namespace to "erp"
+spec:
+  rules:
+    - host: ae73adf0061dc4d49ab515bf812150d9-1090975536.eu-central-1.elb.amazonaws.com
+      http:
+        paths:
+          - path: /erp(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: erp-client-service
+                port:
+                  number: 80
+          - path: /erp/api(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: erp-server-service
+                port:
+                  number: 6006
+            
