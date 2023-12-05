@@ -7,7 +7,7 @@ data:
   BNR_BASE_URL: "http://bnr-server-service.bnr.svc.cluster.local"
   OMS_BASE_URL: "http://oms-server-service.oms.svc.cluster.local"
   ERP_BASE_URL: "http://erp-server-service.erp.svc.cluster.local"
-  MONGO_URI: "mongodb://root:password@my-mongodb-0.my-mongodb-headless:27017,my-mongodb-1.my-mongodb-headless:27017,my-mongodb-2.my-mongodb-headless:27017/store?replicaSet=my-mongodb-replicaset"
+  MONGODB_URI: "mongodb://root:password@my-mongodb-release-0.my-mongodb-release-headless.store.svc.cluster.local:27017,my-mongodb-release-1.my-mongodb-release-headless.store.svc.cluster.local:27017,my-mongodb-release-2.my-mongodb-release-headless.store.svc.cluster.local:27017"
   USER_EMAIL: store.app.class5@gmail.com
   USER_PASS: Store-pass1
   CLIENT_ID: 1044052224045-vonv7v5it54l67u4o6fvt23cksk1it7o.apps.googleusercontent.com

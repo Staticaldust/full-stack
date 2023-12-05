@@ -11,13 +11,6 @@ spec:
     - host: ae73adf0061dc4d49ab515bf812150d9-1090975536.eu-central-1.elb.amazonaws.com
       http:
         paths:
-          - path: /erp(/|$)(.*)
-            pathType: ImplementationSpecific
-            backend:
-              service:
-                name: erp-client-service
-                port:
-                  number: 80
           - path: /erp/api(/|$)(.*)
             pathType: ImplementationSpecific
             backend:
@@ -25,3 +18,10 @@ spec:
                 name: erp-server-service
                 port:
                   number: 6000
+          - path: /erp(/|$)(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: erp-client-service
+                port:
+                  number: 80

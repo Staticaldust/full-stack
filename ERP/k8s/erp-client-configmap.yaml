@@ -4,4 +4,4 @@ metadata:
   name: erp-client-configmap
   namespace: erp
 data:
-  VITE_BASE_URL: "http://aa6fa525644e14bc6a2365d099504e2c-1084886360.eu-central-1.elb.amazonaws.com/erp/api"
+  VITE_BASE_URL: "http://ae73adf0061dc4d49ab515bf812150d9-1090975536.eu-central-1.elb.amazonaws.com/erp/api"
